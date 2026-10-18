@@ -1,61 +1,87 @@
-# Conception d'une prothèse externe de genou polycentrique
+<div align="center">
 
-**Projet d'innovation académique, réalisé en groupe (2025–2026)** · Génie mécanique des systèmes industriels · Elmokhtar Rayadi
+# Conception d’un genou prothétique polycentrique
 
-**🌐 [OUVRIR LA DÉMONSTRATION INTERACTIVE](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**
+**Mécanisme à quatre barres · Du cahier des charges aux gammes d’usinage**
 
-**📄 [LIRE LE DOSSIER TECHNIQUE](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/dossier-technique.html)**
+[![Démo](https://img.shields.io/badge/OUVRIR-LA%20DÉMO%20INTERACTIVE-087e87?style=for-the-badge)](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)
+[![Dossier](https://img.shields.io/badge/LIRE-LE%20DOSSIER%20TECHNIQUE-202f45?style=for-the-badge)](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/dossier-technique.html)
 
-Les deux pages ont des objectifs différents : la démonstration permet de manipuler le mécanisme 4R, consulter les graphiques et explorer les plans ; le dossier technique expose de façon structurée les exigences, équations, données de calcul, cotations, simulations, préparation de fabrication et limites.
+CATIA V5 · SpaceClaim · SimScale · SysML · Python / MATLAB · RDM
 
-[Code de la démonstration](./index.html) · [Contenu du dossier technique](./dossier-technique.html)
+<img src="assets/assemblage_plan_catia.webp" alt="Assemblage CATIA V5 du genou polycentrique" width="720">
 
-## Résumé pour un recruteur
+</div>
 
-Le projet étudie la **conception mécanique d'un genou prothétique polycentrique à quatre barres**, destiné à relier une emboîture fémorale et un pied prothétique. Le problème consiste à combiner la stabilité du mécanisme pendant l'appui, la mobilité en phase oscillante, la résistance structurelle et la possibilité de fabriquer les pièces.
+## Le problème
 
-La démarche comprend : **analyse fonctionnelle et SysML ; cinématique 4R et migration du centre instantané de rotation ; recherche de dimensions ; dimensionnement RDM et sélection des matériaux ; conception des pièces et de l'assemblage sous CATIA V5 ; préparation du modèle SpaceClaim et calculs sur SimScale ; définition des opérations d'usinage.**
+Un genou prothétique à axe unique oblige l’utilisateur à verrouiller activement sa jambe en appui. Un **mécanisme à quatre barres** déplace le centre de rotation pendant la flexion : en extension il reste en arrière de la ligne de charge (genou stable), puis migre vers l’avant pour faciliter la flexion. L’objectif était de concevoir un tel genou **léger, résistant et fabricable**.
 
-### Chiffres de l'étude
+## Résultats clés
 
-| Indicateur | Résultat annoncé | Portée |
-| --- | ---: | --- |
-| Masse de l'assemblage CAO | 452 g | Propriétés de masse du modèle |
-| Migration du CIR annoncée sur la plage initiale | 21,7 mm | La synthèse mentionne 0°–20°, le tableau de points utilise 0°–22° : écart à vérifier |
-| Cas de charge statique | 4 000 N | Calcul éléments finis |
-| Contrainte retenue à 4 000 N | 360 MPa | Après exclusion d'un pic local interprété comme singularité numérique |
-| Facteur de sécurité statique | ≈ 2,44 | Calcul sur le matériau retenu |
-| Déplacement maximal | 0,25 mm | Résultat numérique |
-| Cas de fatigue étudié | 2 200 N | Estimation analytique fondée sur les contraintes calculées |
-| Facteur de sécurité en fatigue | ≈ 1,30 | Estimation préliminaire, sans essai physique |
+| Indicateur | Résultat | Objectif |
+| :-- | --: | :-- |
+| Masse de l’assemblage CAO | **452 g** | ≤ 900 g ✅ |
+| Contrainte max. sous 4 000 N (statique) | **360 MPa** | — |
+| Facteur de sécurité statique | **≈ 2,44** | — |
+| Déplacement maximal | **0,25 mm** | — |
+| Facteur de sécurité en fatigue (2 200 N) | **≈ 1,30** | — |
+| Migration du centre instantané de rotation | **21,7 mm** | Migration postéro-supérieure ✅ |
 
-**Point de vigilance numérique :** les dimensions géométriques finales ne correspondent pas directement au pas de 2,5 mm décrit pour le balayage de paramètres ; la cible de flexion ≥ 120° n'est pas démontrée par le tableau numérique arrêté à 110°. Ces écarts sont explicités dans l'application.
+## Démarche
 
-**Limite fondamentale : le prototype physique n'a pas été fabriqué.** Aucun essai mécanique sur un banc ni essai d'utilisation n'a été réalisé. Les résultats ne démontrent ni l'aptitude à l'usage médical ni une certification réglementaire. Les tableaux cinématiques présentent aussi des conventions à consolider avant reproduction indépendante complète.
+```mermaid
+flowchart LR
+    A["Analyse fonctionnelle<br/>APTE · SysML"] --> B["Synthèse cinématique<br/>4R · CIR"]
+    B --> C["Dimensionnement<br/>RDM · matériaux"]
+    C --> D["CAO<br/>CATIA V5"]
+    D --> E["Calcul EF<br/>SpaceClaim · SimScale"]
+    E --> F["Fabrication<br/>gammes d’usinage"]
+```
 
-## Comment utiliser les deux présentations
+**1. Analyse fonctionnelle.** 7 fonctions de service avec critères mesurables (flexion ≥ 120°, masse, encombrement H ≤ 120 mm / Ø ≤ 80 mm, réglages, démontage ≤ 30 min), architecture SysML et prise en compte de l’ISO 10328.
 
-**[Ouvrir le dossier technique interactif](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**. L'application comporte deux visualisations cinématiques distinctes : un mécanisme géométrique 4R **illustratif** avec fermeture et CIR recalculés, et un graphique interactif retraçant **huit valeurs tabulées de l'étude**. Aucun des deux ne constitue une validation biomécanique ou un modèle autorisé pour fabriquer une prothèse utilisable.
+**2. Cinématique.** Modélisation du quadrilatère articulé par fermeture de chaîne, calcul du CIR par le théorème de Kennedy, recherche des longueurs de barres par balayage de paramètres. Géométrie retenue : AB = 35,5 · BC = 21,4 · CD = 45,7 · AD = 28,3 mm.
 
-Le **dossier technique indépendant** contient six chapitres : synthèse, exigences, cinématique, CAO, RDM et simulation, fabrication et validation. Il présente les 7 fonctions de service, les hypothèses, les tableaux numériques, les cotes, les figures et les limites. La **démonstration interactive**, distincte, conserve les commandes de visualisation 4R, le parcours des valeurs de CIR, la galerie filtrable et la consultation des cas de charge.
+<p align="center"><img src="assets/migration_cir.webp" alt="Trajectoire du centre instantané de rotation" width="560"></p>
+
+**3. Dimensionnement et matériaux.** Corps et bielles en **Ti-6Al-4V ELI** (rapport résistance/masse), axes et visserie en **inox 316L**.
+
+**4. Conception CATIA V5.** Support proximal, corps supérieur, barres de liaison et de couplage, adaptateur tibial, axes et bagues ; mise en plan et contrôle de masse.
+
+**5. Calcul éléments finis.** Préparation du modèle sous SpaceClaim, maillage et calcul statique sous SimScale, puis estimation analytique en fatigue.
+
+<p align="center"><img src="assets/contraintes_von_mises.webp" alt="Contraintes de Von Mises sous 4 000 N" width="560"></p>
+
+**6. Fabrication.** Définition des gammes d’usinage des pièces principales (bague, barre arrière, barre de couplage).
+
+## Démo interactive
+
+La [**démonstration en ligne**](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/) permet de **manipuler le mécanisme 4 barres** et de voir le CIR se déplacer en temps réel, de parcourir la courbe du CIR, d’explorer la galerie des pièces et de consulter les cas de charge.
+Le [**dossier technique**](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/dossier-technique.html) détaille les équations, les tableaux de calcul, les cotations et les simulations (imprimable en PDF).
+
+## Compétences mobilisées
+
+Analyse fonctionnelle · Synthèse de mécanismes · RDM et fatigue · Choix de matériaux · CAO CATIA V5 · Simulation éléments finis · Préparation à la fabrication · Rédaction technique
+
+## Limites et perspectives
+
+Étude numérique : la suite naturelle est la **fabrication d’un prototype** et des **essais sur banc selon l’ISO 10328** (statique puis cyclique 3 millions de cycles). Côté modèle, il reste à affiner la cinématique au-delà de 110° de flexion (cible : 120°) et à documenter le passage de la grille d’optimisation aux cotes finales.
 
 ## Structure du dépôt
 
 ```text
-conception-genou-polycentrique/
-├── index.html             # démonstration interactive
-├── dossier-technique.html # dossier technique statique indépendant
-├── dossier-technique.css  # mise en page de lecture et impression
-├── style.css              # présentation et mise en page de la démo
-├── app.js                 # commandes de la démonstration uniquement
-├── assets/          # extraits graphiques du dossier technique
-└── README.md
+├── index.html              # démonstration interactive
+├── app.js / style.css      # logique et mise en page de la démo
+├── dossier-technique.html  # dossier technique (6 chapitres, imprimable)
+├── dossier-technique.css
+└── assets/                 # captures CATIA, SpaceClaim, SimScale
 ```
 
-## Publication GitHub Pages
+---
 
-Le dossier est déployé sur GitHub Pages depuis la branche `main`, dossier `/ (root)`, à l'adresse : **https://elmokhtarrayadi.github.io/conception-genou-polycentrique/**.
+<div align="center">
 
-## Crédit et cadre
+**Elmokhtar Rayadi** · Élève ingénieur en Génie Mécanique des Systèmes Industriels · [Tous mes projets](https://github.com/elmokhtarrayadi)
 
-Travail académique collectif. Les contributions personnelles peuvent être précisées séparément lors des candidatures. Les schémas, images et données techniques sont présentés comme des éléments d'étude, non comme un produit prêt à la commercialisation.
+</div>
