@@ -17,7 +17,7 @@ La démarche comprend : **analyse fonctionnelle et SysML ; cinématique 4R et mi
 | Indicateur | Résultat annoncé | Portée |
 | --- | ---: | --- |
 | Masse de l'assemblage CAO | 452 g | Propriétés de masse du modèle |
-| Migration du CIR (0° à 20°) | 21,7 mm | Résultat de l'étude cinématique |
+| Migration du CIR annoncée sur la plage initiale | 21,7 mm | La synthèse mentionne 0°–20°, le tableau de points utilise 0°–22° : écart à vérifier |
 | Cas de charge statique | 4 000 N | Calcul éléments finis |
 | Contrainte retenue à 4 000 N | 360 MPa | Après exclusion d'un pic local interprété comme singularité numérique |
 | Facteur de sécurité statique | ≈ 2,44 | Calcul sur le matériau retenu |
@@ -25,13 +25,15 @@ La démarche comprend : **analyse fonctionnelle et SysML ; cinématique 4R et mi
 | Cas de fatigue étudié | 2 200 N | Estimation analytique fondée sur les contraintes calculées |
 | Facteur de sécurité en fatigue | ≈ 1,30 | Estimation préliminaire, sans essai physique |
 
+**Point de vigilance numérique :** les dimensions géométriques finales ne correspondent pas directement au pas de 2,5 mm décrit pour le balayage de paramètres ; la cible de flexion ≥ 120° n'est pas démontrée par le tableau numérique arrêté à 110°. Ces écarts sont explicités dans l'application.
+
 **Limite fondamentale : le prototype physique n'a pas été fabriqué.** Aucun essai mécanique sur un banc ni essai d'utilisation n'a été réalisé. Les résultats ne démontrent ni l'aptitude à l'usage médical ni une certification réglementaire. Les tableaux cinématiques présentent aussi des conventions à consolider avant reproduction indépendante complète.
 
 ## Accès au dossier
 
-Ouvrez [`index.html`](./index.html) directement dans un navigateur. Aucun serveur, compte ni dépendance n'est nécessaire. La visualisation 4R propose un mécanisme géométrique **illustratif**, paramétré avec les longueurs nominales de l'étude ; elle ne reproduit pas numériquement toute la trajectoire publiée et ne doit pas servir à dimensionner un dispositif réel.
+**[Ouvrir le dossier technique interactif](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**. L'application comporte deux visualisations cinématiques distinctes : un mécanisme géométrique 4R **illustratif** avec fermeture et CIR recalculés, et un graphique interactif retraçant **huit valeurs tabulées de l'étude**. Aucun des deux ne constitue une validation biomécanique ou un modèle autorisé pour fabriquer une prothèse utilisable.
 
-Le dossier contient six rubriques : **Synthèse ; Besoin et exigences ; Cinématique et optimisation ; Conception CATIA ; Dimensionnement et calcul ; Fabrication et limites**. Les images sont des figures techniques de l'étude (assemblage, dessins de définition, simulation, fabrication).
+Le dossier contient six rubriques : **Synthèse ; Besoin et exigences ; Cinématique et optimisation ; Conception CATIA ; Dimensionnement et calcul ; Fabrication et limites**. Il permet de consulter les fonctions de service, la traçabilité des exigences, les équations de fermeture, la trajectoire numérique du CIR, les cotes fonctionnelles, les plans CATIA, l'évolution du maillage et les gammes d'usinage. Les 17 images techniques et les tableaux sont accessibles sans disposer d'un document supplémentaire.
 
 ## Structure du dépôt
 
@@ -46,7 +48,7 @@ conception-genou-polycentrique/
 
 ## Publication GitHub Pages
 
-Les fichiers complets sont déposés à la racine du dépôt, avec les 17 illustrations dans `assets/`. Pour activer la démonstration, sélectionner dans **Settings → Pages → Build and deployment** : **Deploy from a branch**, branche `main`, dossier `/ (root)`, puis enregistrer. L'adresse prévue est `https://elmokhtarrayadi.github.io/conception-genou-polycentrique/`. La démonstration est publiée sur GitHub Pages ; son accès public repose sur la branche `main` et le dossier `/ (root)`.
+Le dossier est déployé sur GitHub Pages depuis la branche `main`, dossier `/ (root)`, à l'adresse : **https://elmokhtarrayadi.github.io/conception-genou-polycentrique/**.
 
 ## Crédit et cadre
 
