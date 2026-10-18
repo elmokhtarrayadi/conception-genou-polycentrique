@@ -2,7 +2,7 @@
 
 **Projet d'innovation académique, réalisé en groupe (2025–2026)** · Génie mécanique des systèmes industriels · Elmokhtar Rayadi
 
-**[Ouvrir le dossier technique interactif](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)** *(lien activé après publication sur GitHub Pages)*
+**[Consulter les fichiers de l'application HTML](./index.html)** · *Démonstration publique en attente d'activation de GitHub Pages.*
 
 ## Résumé pour un recruteur
 
