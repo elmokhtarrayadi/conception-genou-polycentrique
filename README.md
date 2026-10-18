@@ -42,9 +42,9 @@ conception-genou-polycentrique/
 └── README.md
 ```
 
-## Mise en ligne
+## Publication GitHub Pages
 
-Après création d'un dépôt public `conception-genou-polycentrique`, déposer les fichiers ci-dessus à sa racine ; dans **Settings → Pages → Build and deployment**, sélectionner **Deploy from a branch**, branche `main` et dossier `/ (root)`. L'adresse de démonstration devient alors `https://elmokhtarrayadi.github.io/conception-genou-polycentrique/`.
+Les fichiers complets sont déposés à la racine du dépôt, avec les 17 illustrations dans `assets/`. Pour activer la démonstration, sélectionner dans **Settings → Pages → Build and deployment** : **Deploy from a branch**, branche `main`, dossier `/ (root)`, puis enregistrer. L'adresse prévue est `https://elmokhtarrayadi.github.io/conception-genou-polycentrique/`. La publication n'est considérée active qu'après une construction GitHub Pages réussie.
 
 ## Crédit et cadre
 
