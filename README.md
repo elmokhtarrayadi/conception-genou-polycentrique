@@ -2,9 +2,13 @@
 
 **Projet d'innovation académique, réalisé en groupe (2025–2026)** · Génie mécanique des systèmes industriels · Elmokhtar Rayadi
 
-**🌐 [OUVRIR LA DÉMO INTERACTIVE](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**
+**🌐 [OUVRIR LA DÉMONSTRATION INTERACTIVE](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**
 
-[Consulter le code de l'application](./index.html)
+**📄 [LIRE LE DOSSIER TECHNIQUE](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/dossier-technique.html)**
+
+Les deux pages ont des objectifs différents : la démonstration permet de manipuler le mécanisme 4R, consulter les graphiques et explorer les plans ; le dossier technique expose de façon structurée les exigences, équations, données de calcul, cotations, simulations, préparation de fabrication et limites.
+
+[Code de la démonstration](./index.html) · [Contenu du dossier technique](./dossier-technique.html)
 
 ## Résumé pour un recruteur
 
@@ -29,19 +33,21 @@ La démarche comprend : **analyse fonctionnelle et SysML ; cinématique 4R et mi
 
 **Limite fondamentale : le prototype physique n'a pas été fabriqué.** Aucun essai mécanique sur un banc ni essai d'utilisation n'a été réalisé. Les résultats ne démontrent ni l'aptitude à l'usage médical ni une certification réglementaire. Les tableaux cinématiques présentent aussi des conventions à consolider avant reproduction indépendante complète.
 
-## Accès au dossier
+## Comment utiliser les deux présentations
 
 **[Ouvrir le dossier technique interactif](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**. L'application comporte deux visualisations cinématiques distinctes : un mécanisme géométrique 4R **illustratif** avec fermeture et CIR recalculés, et un graphique interactif retraçant **huit valeurs tabulées de l'étude**. Aucun des deux ne constitue une validation biomécanique ou un modèle autorisé pour fabriquer une prothèse utilisable.
 
-Le dossier contient six rubriques : **Synthèse ; Besoin et exigences ; Cinématique et optimisation ; Conception CATIA ; Dimensionnement et calcul ; Fabrication et limites**. Il permet de consulter les fonctions de service, la traçabilité des exigences, les équations de fermeture, la trajectoire numérique du CIR, les cotes fonctionnelles, les plans CATIA, l'évolution du maillage et les gammes d'usinage. Les 17 images techniques et les tableaux sont accessibles sans disposer d'un document supplémentaire.
+Le **dossier technique indépendant** contient six chapitres : synthèse, exigences, cinématique, CAO, RDM et simulation, fabrication et validation. Il présente les 7 fonctions de service, les hypothèses, les tableaux numériques, les cotes, les figures et les limites. La **démonstration interactive**, distincte, conserve les commandes de visualisation 4R, le parcours des valeurs de CIR, la galerie filtrable et la consultation des cas de charge.
 
 ## Structure du dépôt
 
 ```text
 conception-genou-polycentrique/
-├── index.html       # dossier interactif
-├── style.css        # présentation sobre et adaptative
-├── app.js           # navigation, galerie, 4R illustratif et visualisation des résultats
+├── index.html             # démonstration interactive
+├── dossier-technique.html # dossier technique statique indépendant
+├── dossier-technique.css  # mise en page de lecture et impression
+├── style.css              # présentation et mise en page de la démo
+├── app.js                 # commandes de la démonstration uniquement
 ├── assets/          # extraits graphiques du dossier technique
 └── README.md
 ```
