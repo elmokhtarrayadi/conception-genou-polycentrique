@@ -29,3 +29,12 @@
 @media(max-width:1280px){.manufacturing-steps{grid-template-columns:repeat(3,minmax(0,1fr))}.cir-panel{grid-template-columns:1fr 1fr}.trace-flow,.assembly-chain{grid-template-columns:repeat(2,minmax(0,1fr))}.trace-flow>div:nth-child(2),.assembly-chain>div:nth-child(2){border-right:0}.trace-flow>div:nth-child(-n+2),.assembly-chain>div:nth-child(-n+2){border-bottom:1px solid #e5edef}}
 @media(max-width:920px){.brief-grid{grid-template-columns:1fr}.brief-grid>div{border-bottom:1px solid #e8eeee;padding-bottom:12px}.brief-grid>div:last-child{border-bottom:0}.equation-layout,.engineering-grid,.mesh-comparison,.cir-panel{grid-template-columns:1fr}}
 @media(max-width:570px){.audit-columns,.engineering-calc,.manufacturing-steps,.trace-flow,.assembly-chain{grid-template-columns:1fr}.audit-columns>div+div{border:0;padding-left:0;border-top:1px solid #e5edef;padding-top:13px}.trace-flow>div,.assembly-chain>div{border-right:0!important;border-bottom:1px solid #e5edef}.trace-flow>div:last-child,.assembly-chain>div:last-child{border-bottom:0}.small-ref{white-space:normal}.formula{font-size:10px;padding:11px 8px}.cir-controls{padding:9px}.paper{padding:18px 16px}}
+
+
+/* Liens explicites entre démonstration et dossier autonome. */
+.doc-top-link{display:inline-block;margin-left:11px;color:#16746f;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.doc-top-link:hover{color:#124e59}
+.doc-sidebar-link{display:block;margin:0 0 13px;padding:10px 12px;background:#e7f2f0;border:1px solid #c4dedb;border-radius:3px;color:#196a66;font-weight:800;font-size:11px;line-height:1.4;text-decoration:none}
+.doc-sidebar-link:hover{background:#dcefeb}
+.button-row>a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700}
+@media(max-width:770px){.topbar .doc-top-link{margin-left:5px}.button-row>a.btn{max-width:100%}}
