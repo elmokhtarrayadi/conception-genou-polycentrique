@@ -86,4 +86,33 @@ play.addEventListener('click',()=>{if(running){stop();return}running=true;lastFr
 $('resetMechanism').addEventListener('click',()=>{stop();input.value=0;direction=1;draw(0)});
 draw(0);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+
+// Actual tabulated kinematic values; the polyline is a visualization of discrete points,
+// not a dynamic multibody solver and not a validated clinical knee-flexion trajectory.
+const observations=[
+ {a:0,x:-28.4,y:42.1},{a:11,x:-22.7,y:53.8},{a:22,x:-14.3,y:58.6},
+ {a:33,x:-5.8,y:67.2},{a:44,x:3.6,y:74.8},{a:55,x:12.9,y:81.5},
+ {a:88,x:38.5,y:92.4},{a:110,x:48.2,y:95.7}
+];
+const cirInput=$('cirStudyPosition'),chart=$('cirDataChart');
+if(cirInput&&chart){
+ const chNS='http://www.w3.org/2000/svg';
+ const sx=(a)=>66+a/110*600,sy=(v)=>273-(v+40)/150*224;
+ const svgEl=(tag,attr,parent)=>{const e=document.createElementNS(chNS,tag);for(const [k,v]of Object.entries(attr))e.setAttribute(k,v);parent.appendChild(e);return e;};
+ const txt=(x,y,value,color='#758b96',anchor='middle')=>{const e=svgEl('text',{x,y,fill:color,'font-size':'12','text-anchor':anchor,'font-family':'Arial,sans-serif'},chart);e.textContent=value;return e};
+ for(const val of [-40,0,40,80,110]){svgEl('line',{x1:66,y1:sy(val),x2:666,y2:sy(val),stroke:'#e5edef','stroke-width':'1'},chart);txt(55,sy(val)+4,val+'',' #758b96'.trim(),'end');}
+ for(const val of [0,22,44,66,88,110]){svgEl('line',{x1:sx(val),y1:30,x2:sx(val),y2:273,stroke:'#eff3f5','stroke-width':'1'},chart);txt(sx(val),293,val+'°');}
+ svgEl('line',{x1:66,y1:sy(0),x2:666,y2:sy(0),stroke:'#adc6ca','stroke-width':'1.7','stroke-dasharray':'5 4'},chart);
+ txt(65,18,'Coordonnées CIR (mm)','#496879','start');txt(665,317,'Angle d’entrée','#496879','end');
+ for(const [series,color]of [['x','#39789b'],['y','#238677']]){
+   const coords=observations.map(o=>`${sx(o.a)},${sy(o[series])}`).join(' ');
+   svgEl('polyline',{points:coords,fill:'none',stroke:color,'stroke-width':'3','stroke-linejoin':'round','stroke-linecap':'round'},chart);
+   for(const v of observations){const pt=svgEl('circle',{cx:sx(v.a),cy:sy(v[series]),r:5,fill:'#fff',stroke:color,'stroke-width':'2'},chart);pt.setAttribute('aria-label',`${v.a} degrés: ${series} ${v[series]} millimètres`)}
+ }
+ const marker=svgEl('line',{x1:66,y1:28,x2:66,y2:273,stroke:'#b89a6d','stroke-width':'2','stroke-dasharray':'4 4'},chart);
+ const loc=Intl.NumberFormat('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1});
+ function selectObs(){const i=Number(cirInput.value),v=observations[i];$('cirStudyAngle').textContent=v.a+'°';$('cirStudyX').textContent=loc.format(v.x)+' mm';$('cirStudyY').textContent=loc.format(v.y)+' mm';$('cirStudyStatus').textContent=v.x<0?'Position postérieure':'Position antérieure';marker.setAttribute('x1',sx(v.a));marker.setAttribute('x2',sx(v.a));document.querySelectorAll('[data-cir-row]').forEach((row,k)=>row.classList.toggle('cir-selected',k===i));}
+ cirInput.addEventListener('input',selectObs);selectObs();
+}
+
 })();
