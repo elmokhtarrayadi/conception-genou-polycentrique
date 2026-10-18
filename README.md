@@ -2,7 +2,9 @@
 
 **Projet d'innovation académique, réalisé en groupe (2025–2026)** · Génie mécanique des systèmes industriels · Elmokhtar Rayadi
 
-**[Consulter les fichiers de l'application HTML](./index.html)** · *Démonstration publique en attente d'activation de GitHub Pages.*
+**🌐 [OUVRIR LA DÉMO INTERACTIVE](https://elmokhtarrayadi.github.io/conception-genou-polycentrique/)**
+
+[Consulter le code de l'application](./index.html)
 
 ## Résumé pour un recruteur
 
@@ -44,7 +46,7 @@ conception-genou-polycentrique/
 
 ## Publication GitHub Pages
 
-Les fichiers complets sont déposés à la racine du dépôt, avec les 17 illustrations dans `assets/`. Pour activer la démonstration, sélectionner dans **Settings → Pages → Build and deployment** : **Deploy from a branch**, branche `main`, dossier `/ (root)`, puis enregistrer. L'adresse prévue est `https://elmokhtarrayadi.github.io/conception-genou-polycentrique/`. La publication n'est considérée active qu'après une construction GitHub Pages réussie.
+Les fichiers complets sont déposés à la racine du dépôt, avec les 17 illustrations dans `assets/`. Pour activer la démonstration, sélectionner dans **Settings → Pages → Build and deployment** : **Deploy from a branch**, branche `main`, dossier `/ (root)`, puis enregistrer. L'adresse prévue est `https://elmokhtarrayadi.github.io/conception-genou-polycentrique/`. La démonstration est publiée sur GitHub Pages ; son accès public repose sur la branche `main` et le dossier `/ (root)`.
 
 ## Crédit et cadre
 
